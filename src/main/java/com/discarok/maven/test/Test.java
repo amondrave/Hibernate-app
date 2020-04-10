@@ -1,5 +1,6 @@
 package com.discarok.maven.test;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -7,7 +8,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import com.discarok.maven.modelo.Empleado;
-import com.ibm.icu.util.GregorianCalendar;
+
 
 public class Test {
 	
@@ -21,7 +22,7 @@ public class Test {
 		emf = Persistence.createEntityManagerFactory("aplicacion");
 		em = emf.createEntityManager();
 		
-		Empleado empleado = new Empleado(1676L,"Mondragon Rodriguez","Angel",new GregorianCalendar(1998,12,14).getTime());
+		Empleado empleado = new Empleado(1676L,"Mondragon Rodriguez","Angel",LocalDate.of(1998,12,14));
 		em.getTransaction().begin();
 		em.persist(empleado);
 		em.getTransaction().commit();
